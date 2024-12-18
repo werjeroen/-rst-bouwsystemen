@@ -1,0 +1,138 @@
+@use "../mixins" as mixin;
+@use '../base/colors' as color;
+
+.navigation--row {
+    @include mixin.flex($dynamic-direction-breakpoint: 'laptop');
+    
+    .navigation__link--parent,
+    .navigation__link--children,
+    .navigation__link {
+        @include mixin.flex($align-items: center);
+        list-style: none;
+        letter-spacing: 1px;
+
+        * {
+            transition: all .1s linear;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: color.$black;
+        }
+        & > .navigation__link {
+            color: inherit;
+            font-size: inherit; 
+            line-height: inherit;
+        }
+    }
+    .link__label {
+        line-height: 1;
+    }
+
+    .navigation__link--children {            
+        @include mixin.flex($flex-direction: column, $justify-content: center);
+        position: relative;
+        
+        &:hover,
+        &:focus,
+        &:active {   
+            .menu__list {
+                max-height: 77rem;
+                margin-bottom: 1rem;
+            }
+        }
+        &.show--children {
+            & > .navigation__link {
+                color: color.$primary;
+                min-height: 2.4rem;
+            }
+        }
+
+        .menu__list {
+            @include mixin.flex($flex-direction: column);
+            position: absolute;
+            top: 3.5rem;
+            right: 0;
+            max-height: 0;
+            min-width: max-content;
+            overflow: hidden;
+            transition: all .1s linear;
+            box-shadow: .2rem .2rem .5rem rgba(color.$black, .15);
+            background-color: color.$white;
+            padding: 0 0;
+            margin: 0 0;
+            border-radius: .6rem;
+
+            li.navigation__link {
+                padding: 0 0;
+
+                & > .navigation__link {
+                    padding: 1rem 2rem;
+                    width: 100%;
+                }
+
+                &.navigation__link--active {
+                    .navigation__link {
+                        background-color: color.$submenu-background;
+                        color: color.$black;
+                    }
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    &.navigation__link {
+                        background-color: color.$gray-light;
+                    }
+                }
+            }
+
+            .navigation__link {
+                min-height: 3rem;
+                color: color.$black;
+            }
+        }
+    }
+
+    li {
+        list-style: none;
+        padding: 0 0;
+    }
+}
+
+.navigation--column {
+    list-style: none;
+    
+    .navigation__link {
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}
+
+.navigation__link--children {  
+    .navigation__link {
+        position: relative;
+        gap: 1rem;
+
+        .link__icon {
+            @include mixin.flex;
+            width: 1.6rem;
+            height: 1.6rem;
+            flex: 0 0 1.6rem;
+            cursor: pointer;
+
+            @include mixin.breakpoint('max', 'tablet') {
+                color: color.$black;
+            }
+        }
+    }
+    @include mixin.breakpoint('max', 'tablet') {
+        & > .navigation__link {
+            margin-bottom: 1rem; 
+        }
+    }
+}

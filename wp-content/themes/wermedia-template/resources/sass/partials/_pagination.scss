@@ -1,0 +1,58 @@
+@use "../mixins/" as mixin;
+@use "../base/colors" as color;
+
+.pagination {
+    @include mixin.flex($justify-content: center);
+    margin-top: 5rem;
+
+    .pagination__number {
+        @include mixin.flex($align-items: center, $justify-content: center);
+        color: color.$black;
+        font-size: 1.6rem;
+        font-size: clamp(1.6rem, 5vw, 1.8rem);
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: darken(color.$primary, 5);
+        }
+        &.current {
+            opacity: 1;
+            font-weight: 500;
+            color: color.$primary;
+
+        }
+    }
+    .navigation__pages {
+        @include mixin.flex($align-items: center);
+        gap: 1rem;
+    }
+    .pagination__button {
+        @include mixin.flex($align-items: center, $justify-content: center);
+        background-color: color.$secondary;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+
+        .icon {
+            @include mixin.flex;
+            width: 1.4rem;
+            height: 1.4rem;
+        }
+
+        &.prev {
+            margin-right: 2rem;
+        }
+        &.next {
+            margin-left: 2rem;
+        }
+
+        &.disabled {
+            opacity: .4;
+        }
+    }
+
+    @include mixin.breakpoint('min', 'laptop'){
+       margin-top: 10rem; 
+    }
+} 

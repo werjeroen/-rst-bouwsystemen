@@ -1,0 +1,196 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.header {
+    @include mixin.flex($align-items: center);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10rem;
+    z-index: 10;
+    transition: all 0.125s linear;
+    color: color.$white;
+
+
+    &.header--fixed {
+        background-color: color.$white;
+        color: color.$black;
+
+        .menu__icon--dropdown {
+            path {
+                fill: color.$black;
+            }
+        }
+    }
+}
+
+.header__brand {
+    position: relative;
+    transition: all .125s linear;
+
+    .brand__link {
+        @include mixin.flex($align-items: center);
+        height: 2.6rem;
+        width: auto;
+   
+        @include mixin.breakpoint("min", "laptop") {
+            height: 3.6rem;
+        }
+    } 
+}
+
+.header__wrapper {
+    @include mixin.flex($align-items: center, $justify-content: space-between);
+    @include mixin.wrapper(100%);
+}
+
+.header__actions {
+    @include mixin.flex($align-items: center);
+    gap: 1rem;
+
+    @include mixin.breakpoint("min", "laptop") {
+        gap: 2rem;
+    }
+}
+
+.header__toggle {
+    @include mixin.flex($align-items: center, $justify-content: center);
+    width: 5.4rem;
+    height: 5.4rem;
+    cursor: pointer;
+    border-radius: .4rem;
+    transition: all .125s linear;
+    z-index: 15;
+    background-color: color.$black;
+
+    .navigation__toggle {
+        @include mixin.flex($flex-direction: column, $justify-content: space-between);
+        width: 2.6rem;
+        height: 1.4rem;
+        transition: all .125s linear;
+
+        .line {
+            position: relative;
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: color.$white;
+            transition: all .125s linear;
+        }
+    }
+
+    &.toggle--open {
+        .navigation__toggle {
+            .line {
+                opacity:0;
+                
+                &:first-child { 
+                    transform:rotate(45deg); 
+                    top:6px;
+                    opacity:1;
+                }
+
+                &:last-child { 
+                    transform:rotate(-45deg); 
+                    bottom:6px;
+                    opacity:1;
+                }
+            }
+        }
+    }
+
+    @include mixin.breakpoint("min", "desktop") {
+        display: none;
+    }
+}
+
+.header__main {
+    @include mixin.flex($align-items: center);
+    gap: 5rem;
+    flex: 1;
+}
+.header__menu {
+    @include mixin.flex($align-items: center);
+    gap: 2rem;
+}
+
+.header__navigation {
+    @include mixin.flex;
+    gap: 2rem;
+
+    .navigation__link {
+        @include mixin.font-family('heading');
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+        letter-spacing: .5px;
+    }
+    .navigation__link--active {
+        * {
+            font-weight: 600;
+        }
+    }
+
+    @include mixin.breakpoint("max", "desktop") {
+        display: none !important;
+    }
+    @include mixin.breakpoint("min", "laptop") {
+        gap: 7rem;
+    }
+}
+
+.header__slideout {
+    @include mixin.flex($flex-direction: column, $justify-content: center);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: color.$white;
+    color: color.$black;
+    z-index: 1;
+    padding: 5rem 4rem;
+    transform: translateX(100%);
+    transition: transform .2s ease-in;
+
+    .sidebar__menu {
+        overflow-x: auto;
+
+        .navigation__link {
+            @include mixin.flex($align-items: center);
+            list-style: none;
+            font-size: clamp(2.6rem, 3vw, 3.2rem);
+            line-height: 1.8;
+
+            .link__icon {
+                @include mixin.flex($align-items: center, $justify-content: center);
+
+                .menu__icon--dropdown {
+                    path {
+                        fill: color.$black;
+                    }
+                }
+            }
+        }
+        .navigation__link--children {
+            .menu__list {
+                max-height: 0;
+                transition: max-height 0.6s ease;
+                overflow: hidden;
+                padding: 0;
+                display: block;
+            }
+        }
+    }
+
+    &.navigation--open {
+        transform: translateX(0);
+        box-shadow: 0 0 3rem rgba(color.$black, 0.3);
+    }
+
+    @include mixin.breakpoint("min", "tablet") {
+        width: 75vw;
+    }
+
+    @include mixin.breakpoint("min", "laptop") {
+        width: 45vw;
+    }
+}

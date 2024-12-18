@@ -1,0 +1,52 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.blocks {
+    .block {
+        position: relative;
+        
+        p {
+            a:not(.card__link),
+            a:not(.button) {
+                color: color.$primary;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.block--spacer {
+    padding: 5rem  0;
+
+
+    &:not(.block--background) {
+        @include mixin.breakpoint('min', 'laptop') {
+            padding: 7.5rem 0 5rem;
+        }
+        @include mixin.breakpoint('min', 'desktop') {
+            padding: 10rem 0 7.5rem;
+        }
+     }
+    &.block--background {
+        @include mixin.breakpoint('min', 'laptop') {
+            padding: 7.5rem 0;
+        }
+        @include mixin.breakpoint('min', 'desktop') {
+            padding: 10rem 0;
+        }
+    }
+}
+.block--spacer-top {
+    padding: 5rem 0 0;
+
+    @include mixin.breakpoint('min', 'laptop') {
+        padding: 7.5rem 0 0;
+    }
+    @include mixin.breakpoint('min', 'desktop') {
+        padding: 10rem 0 0;
+    }
+}
+
+.block--background {
+    background-color: color.$content--background;
+}

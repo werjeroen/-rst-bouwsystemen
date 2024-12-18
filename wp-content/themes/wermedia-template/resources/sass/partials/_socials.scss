@@ -1,0 +1,21 @@
+@use "../mixins/" as mixin;
+@use "../base/colors" as color;
+
+.socials {
+    @include mixin.flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    .social__icon {
+        display: block;
+        width: 3.4rem;
+        height: 3.4rem;
+        transition: all .2s ease;
+
+        &:hover,
+        &:focus,
+        &:active {
+            transform: scale(1.1);
+        }
+    }
+}

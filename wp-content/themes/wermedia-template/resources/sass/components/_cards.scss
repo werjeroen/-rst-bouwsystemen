@@ -1,0 +1,42 @@
+@use "../base/variables" as var;
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.card--news {
+    @include mixin.flex($flex-direction: column);
+    background-color: color.$white;
+    box-shadow: 0 0 2rem rgba(color.$black, .2);
+    transition: all .2s ease;
+
+    &:nth-of-type(even) {
+        @include mixin.breakpoint("min", "laptop") {
+            transform: translateY(10rem);
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        box-shadow: 0 0 3rem rgba(color.$black, .3);
+
+        .card__image {
+            .image--transform {
+                transform: scale(1.075);
+            }
+        }
+    }
+
+    .card__image {
+        min-height: 20vh;
+        aspect-ratio: 16/9;
+        width: 100%;
+        overflow: hidden;
+    }
+    .card__content {
+        padding: 2rem;
+
+        @include mixin.breakpoint("min", "laptop") {
+            padding: 3rem;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+
+#Apple file
+.DS_Store
+
+#Node modukes
+node_modules/

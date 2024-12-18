@@ -1,0 +1,139 @@
+@use "../base/variables" as var;
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.footer {
+    @include mixin.flex($flex-direction: column);
+    position: relative;
+    background-color: color.$footer-background;    
+    color: color.$footer-text;
+    z-index: 1;
+
+    * {
+        font-size: clamp(1.4rem, 2vw, 1.6rem);
+    }
+}
+
+.footer__wrapper {
+    @include mixin.flex($dynamic-direction-breakpoint: 'laptop');
+    @include mixin.wrapper(180rem);
+    padding: 0 var.$mobile_padding;
+    gap: 5rem;
+}
+
+.footer__top,
+.footer__bottom {
+    width: 100%;
+}
+.footer__top {
+    padding: 4rem 0;
+
+    @include mixin.breakpoint("min", "laptop") {
+        padding: 8rem 0 4rem;
+    }
+}
+.footer__bottom {
+    padding: 2rem 0;
+
+
+    .navigation--row {
+        gap: .5rem;
+
+        .navigation__link {
+            letter-spacing: initial;
+        }
+
+        @include mixin.breakpoint("min", "laptop") {
+            gap: 1.5rem;
+        }
+    }
+
+    * {
+        font-size: clamp(1.3rem, 2vw, 1.5rem);
+    }
+
+    .footer__author {
+        @include mixin.flex;
+        flex: 1;
+
+        .author__link {
+            @include mixin.flex($align-items: flex-start);
+            gap: .5rem;
+            line-height: 1;
+        }
+        .author__logo {
+            @include mixin.flex($align-items: center);
+            height: 1.1rem;
+            width: max-content;
+
+            @include mixin.breakpoint('min', 'laptop') {
+                height: 1.3rem;
+            }
+        }
+
+        @include mixin.breakpoint('min', 'laptop') {
+            justify-content: flex-end
+        }
+    }
+}
+
+.footer__section {
+    flex: 1;
+}
+
+.footer__row {
+    @include mixin.flex($dynamic-direction-breakpoint: 'laptop');
+    width: 100%;
+    gap: 3rem;
+}
+.footer__row--between {
+    @include mixin.flex($dynamic-direction-breakpoint: 'desktop');
+    gap: 2rem;
+    width: 100%;
+
+    @include mixin.breakpoint('min', 'laptop') {
+        justify-content: space-between
+    }
+}
+.footer__column {
+    @include mixin.flex($flex-direction: column);
+    flex: 1;
+}
+
+.footer__navigation {
+    flex: 1;
+}
+
+.footer__title {
+    @include mixin.font-family('heading');
+    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 3vw, 1.8rem);
+    font-weight: 900;
+    letter-spacing: .9px;
+    margin-bottom: 1rem;
+}
+
+.footer__cta {
+    @include mixin.flex($align-items: center);
+    background: color.$footer-background-cta;
+    padding: 3rem 0;
+    min-height: 35vh;
+
+    .content__wrapper {
+        height: 100%;
+    }
+    .cta__tekst {
+        align-self: flex-end;
+
+        @include mixin.breakpoint('min', 'laptop') {
+            max-width: 75%;
+        }
+    }
+
+    @include mixin.breakpoint('min', 'mobile') {
+        padding: 5rem 0;
+    }
+    @include mixin.breakpoint('min', 'laptop') {
+        padding: 10rem 0;
+    }
+}

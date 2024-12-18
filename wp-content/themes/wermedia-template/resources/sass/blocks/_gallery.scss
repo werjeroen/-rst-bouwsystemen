@@ -1,0 +1,29 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+@import '~@fancyapps/fancybox/dist/jquery.fancybox.css';
+
+.block--gallery {
+    .block__intro {
+        margin-bottom: 3rem;
+
+        @include mixin.breakpoint('min', 'laptop') {
+            max-width: 66%;
+        }
+    }
+
+    .gallery__image {
+        overflow: hidden;
+        transition: all .2s ease-in;
+
+        &:hover,
+        &:focus,
+        &:active {
+            cursor: zoom-in;
+
+            .image--transform {
+                transform: scale(1.075);
+            }
+        }
+    }
+}

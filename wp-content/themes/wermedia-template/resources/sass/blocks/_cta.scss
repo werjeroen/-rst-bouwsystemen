@@ -1,0 +1,41 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.block--cta {
+    @include mixin.flex($align-items: flex-end);
+    padding: 7.5rem 0;
+
+    .block__content {
+        @include mixin.flex($flex-direction: column);
+        position: relative;
+        z-index: 2;
+        color: color.$white;
+
+        @include mixin.breakpoint('min', 'laptop') {
+            max-width: 75%;
+        }
+    }
+
+    .block__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &:before {
+            content: '';
+            position: absolute;
+            background-color: rgba(color.$black, .35);
+            mix-blend-mode: multiply;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @include mixin.breakpoint('min', 'laptop') {
+        min-height: 55vh;
+    }
+}

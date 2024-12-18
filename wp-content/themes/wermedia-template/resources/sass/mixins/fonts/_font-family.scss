@@ -1,0 +1,19 @@
+$font-heading: 'Archivo';
+$font-body: 'Open Sans';
+
+$fonts: (
+    'heading': $font-heading,
+    'body': $font-body,
+) !default;
+
+$font-fallback: Helvetica, Arial, sans-serif;
+
+@mixin font-family($font,	$weight: 300) {
+  @if map-has-key($fonts, $font) {
+    font-family: map-get($fonts, $font), #{$font-fallback};
+  } @else {
+    font-family: $font-fallback;
+  }
+
+	font-weight: $weight;
+}
