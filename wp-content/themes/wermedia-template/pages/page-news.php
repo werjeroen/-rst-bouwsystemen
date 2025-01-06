@@ -33,10 +33,10 @@ $result = new WP_Query($args);
             </div>
             <?php TemplateHelper::wer_pagination($result->max_num_pages); ?>
         <?php else : ?>
-            <p><?= __('Er zijn geen berichten toegevoegd.', ''); ?></p>
+            <p><?= __('Er zijn geen berichten toegevoegd.', 'wermedia-template'); ?></p>
         <?php endif; ?>
     </div>
 </div>
 
 <?php
-get_footer();
+    get_footer();

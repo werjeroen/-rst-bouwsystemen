@@ -153,46 +153,6 @@ function wer_social_media($prefix = '') {
     return $output;
 }
 
-  
-/**
- * Custom helper function for getting option field from options for client info 
-*/  
-function get_wer_option_field($value = null) {
-    $field = get_option($value);
-
-    switch ($value) :
-        case 'telefoonnummer';
-            $prefix = 'Tel. ';
-            break;
-        case 'emailadres';
-            $prefix = 'E-mail ';
-            break;
-        default;
-            $prefix = '';
-    endswitch;
-
-    if (!empty($field)) :
-      $out = '<div class="contact__item item__'.strtolower($value).'">'.$prefix.$field.'</div>';  
-      return $out;
-    endif;
-}
-
-/**
- * Quick formated client details inserted in theme options
- */  
-function wer_client_info() {
-    $out = '';
-    $out .= get_wer_option_field('adres');
-    if (!empty(get_option('postcode'))) : $postcode = get_option('postcode').' '; else : $postcode = ''; endif;
-    if (!empty(get_option('woonplaats'))) : $plaatsnaam = get_option('woonplaats'); else : $plaatsnaam = ''; endif;
-    if ($postcode || $plaatsnaam) :
-      $out .= '<div class="contact__item item__postcodeplaats">'.$postcode.$plaatsnaam.'</div>';
-    endif;
-    $out .= get_wer_option_field('telefoonnummer');
-    $out .= get_wer_option_field('emailadres');
-    return $out;
-}
-
 /**
  * Custom logo function if has support for custom logo
  */

@@ -5,9 +5,9 @@
                 <div class="footer__column column--big">
                     <span class="footer__title"><?= __('Contactgegevens', 'wermedia-template'); ?></span>
 
-                    <?php if (function_exists('wer_client_info')) : ?>
+                    <?php if ( $adres = get_field('adres', 'option') ) : ?>
                         <div class="client__info">
-                            <?= wer_client_info(); ?>
+                           <?= $adres; ?>
                         </div>
                     <?php endif; ?>
 

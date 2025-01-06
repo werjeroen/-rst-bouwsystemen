@@ -122,6 +122,11 @@
     @include mixin.flex;
     gap: 2rem;
 
+    .navigation__link,
+    .navigation__link--children {
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+    }
+
     .navigation__link {
         @include mixin.font-family('heading');
         font-size: clamp(1.4rem, 3vw, 1.8rem);
