@@ -9,8 +9,8 @@
     height: 10rem;
     z-index: 10;
     transition: all 0.125s linear;
+    background-color: rgba(color.$white, .35);
     color: color.$white;
-
 
     &.header--fixed {
         background-color: color.$white;
