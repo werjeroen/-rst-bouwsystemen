@@ -1,0 +1,32 @@
+@use '../mixins/' as mixin;
+
+.grid--1,
+.grid--one {
+    @include mixin.grid(
+        $gap: 4rem, 
+    );
+}
+.grid--2,
+.grid--two {
+    @include mixin.grid(
+        $gap: 4rem, 
+        $desktopColumns: repeat(2, 1fr),
+        $desktopGap: 6rem,
+    );
+}
+.grid--3,
+.grid--three {
+    @include mixin.grid(
+        $gap: 4rem,
+        $tabletColumns: repeat(2, 1fr),
+        $desktopColumns: repeat(3, 1fr)
+    );
+}
+.grid--4,
+.grid--four {
+    @include mixin.grid(
+        $gap: 3rem,
+        $tabletColumns: repeat(2, 1fr),
+        $desktopColumns: repeat(4, 1fr)
+    );
+}

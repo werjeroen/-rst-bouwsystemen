@@ -1,0 +1,63 @@
+@use '../mixins/' as mixin;
+@use '../base/colors' as color;
+
+body {
+    @include mixin.font-family('body');
+    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 2vw, 2rem);
+    line-height: 1.6;
+}
+
+h1,
+h2, 
+h3, 
+h4, 
+h5 {
+    @include mixin.font-family('heading');
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+}
+h1, 
+h2,
+h3,
+h4, 
+h5 {
+    font-weight: 600;
+}
+h1, 
+h2 {
+    color: color.$primary;
+}
+
+p {
+    margin: 0 0;
+
+    * {
+        font-size: inherit;
+    }
+    
+    &:not(:last-of-type) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+h1 {
+    font-size: 5.6rem;
+    font-size: clamp(3rem, 4vw, 6.6rem);
+}
+h2 {
+    font-size: 4.4rem;
+    font-size: clamp(2.6rem, 4vw, 4.6rem);
+}
+h3 {
+    font-size: 3rem;
+    font-size: clamp(2.4rem, 3vw, 3.4rem);
+}
+h4 {
+    font-size: 2.4rem;
+    font-size: clamp(2rem, 3vw, 3rem);
+}
+h5 {
+    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+}

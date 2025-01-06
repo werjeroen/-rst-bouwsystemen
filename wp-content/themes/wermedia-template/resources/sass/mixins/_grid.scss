@@ -1,0 +1,53 @@
+@use "./breakpoints" as breakpoint;
+
+@mixin grid(
+  $gap: 2rem,
+  $mobileColumns: null,
+  $tabletColumns: null,
+  $laptopColumns: null,
+  $desktopColumns: null,
+  $mobileGap: null,
+  $tabletGap: null,
+  $laptopGap: null,
+  $desktopGap: null
+) {
+  display: grid;
+  gap: $gap;
+
+  @if ($mobileColumns != null) {
+    @include breakpoint.breakpoint("min", "mobile") {
+      grid-template-columns: $mobileColumns;
+
+      @if $mobileGap {
+        grid-gap: $mobileGap;
+      }
+    }
+  }
+  @if ($tabletColumns != null) {
+    @include breakpoint.breakpoint("min", "tablet") {
+      grid-template-columns: $tabletColumns;
+
+      @if $tabletGap {
+        grid-gap: $tabletGap;
+      }
+    }
+  }
+  @if ($laptopColumns != null) {
+    @include breakpoint.breakpoint("min", "laptop") {
+      grid-template-columns: $laptopColumns;
+
+      @if $laptopGap {
+        grid-gap: $laptopGap;
+      }
+    }
+  }
+  @if ($desktopColumns != null) {
+    @include breakpoint.breakpoint("min", "desktop") {
+      grid-template-columns: $desktopColumns;
+
+      @if $desktopGap {
+        grid-gap: $desktopGap;
+      }
+    }
+  }
+}

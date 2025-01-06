@@ -1,0 +1,83 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.button {
+    @include mixin.flex($flex: inline-flex, $align-items: center);
+    align-self: flex-start;
+    font-size: 1.4rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    letter-spacing: 1px;
+    height: 5.6rem;
+    padding: 0 3rem;
+    transition: background-color .25s linear;
+    border-radius: .6rem;
+    transition: transform .2s ease;
+    cursor: pointer;
+}
+
+.button__solid--primary {
+    background-color: color.$button-primary;
+    color: color.$white;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(color.$button-primary, 10);
+    }
+}
+.button__solid--secondary {
+    background-color: color.$button-secondary;
+    color: color.$black;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: darken(color.$button-secondary, 10);
+        color: color.$secondary;
+    }
+}
+
+.button__open--black {
+    border: 2px solid color.$black;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: color.$black;
+        color: color.$white;
+    }
+}
+
+.button__box {
+    @include mixin.flex($dynamic-direction-breakpoint: 'tablet');
+    gap: 2rem;
+}
+.button__box--spacer {
+    margin-top: 2rem;
+}
+
+.button__textual {
+    font-weight: 600;
+    letter-spacing: .6px;
+}
+
+.button__icon {
+    @include mixin.flex($align-items: center, $justify-content: center);
+    background-color: color.$secondary;
+    box-shadow: 0 0 .5rem rgba(color.$black, .2);
+    border-radius: 50%;
+    width: 5.2rem;
+    height: 5.2rem;
+    padding: 0 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+        transform: scale(1.1);
+    }
+
+    .icon {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+}

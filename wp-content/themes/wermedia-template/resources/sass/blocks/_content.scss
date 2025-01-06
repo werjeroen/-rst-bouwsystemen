@@ -1,0 +1,130 @@
+@use "../mixins" as mixin;
+@use "../base/colors" as color;
+
+.content--splitted {
+    @include mixin.flex($dynamic-direction-breakpoint: 'desktop');
+}
+.content--gap {
+    gap: 3rem;
+
+    @include mixin.breakpoint('min', 'laptop') {
+        gap: 6rem;
+    }
+    @include mixin.breakpoint('min', 'desktop') {
+        gap: 10rem;
+    }
+}
+
+.content--third {
+    flex: 0 0 35%;
+}
+.content--half {
+    flex: 1;
+}
+
+.content--default {
+    padding: 5rem 0;
+
+    @include mixin.breakpoint('min', 'laptop') {
+        padding: 7.5rem 0 5rem;
+    }
+    @include mixin.breakpoint('min', 'desktop') {
+        padding: 10rem 0 5rem;
+    }
+}
+.content--even {
+    padding: 5rem 0;
+
+    @include mixin.breakpoint('min', 'laptop') {
+        padding: 7.5rem 0;
+    }
+    @include mixin.breakpoint('min', 'desktop') {
+        padding: 10rem 0;
+    }
+}
+
+.block--content-image {
+    .content__image {
+        height: 30vh;
+
+        @include mixin.breakpoint('min', 'laptop') {
+            height: 47.5vh;
+        }
+        @include mixin.breakpoint('min', 'desktop-large') {
+            height: 57.5vh;
+            flex: 0 0 50%;
+        }
+    }
+    .content__text {
+        @include mixin.flex($flex-direction: column, $justify-content: center);
+        padding: 2rem 0;
+        flex: 0 0 50%;
+        
+        @include mixin.breakpoint('min', 'laptop') {
+            padding: 3rem;
+        }
+        @include mixin.breakpoint('min', 'desktop-large') {
+            padding: 3vw;
+        }
+    }
+
+    &.block--background {
+        .content__text {
+            padding: 2rem; 
+            
+            @include mixin.breakpoint('min', 'laptop') {
+                padding: calc(5rem + 1.5625vw);
+            }
+            @include mixin.breakpoint('min', 'desktop-large') {
+                padding: 3vw;
+            }
+        }
+    }
+
+    &.block--flipped {
+        .content__image {
+            order: 2;
+        }
+    }
+}
+
+.block--content {
+
+
+    &:not(.block--background) {
+        @include mixin.breakpoint('min', 'laptop') {
+            padding: 7.5rem 0 5rem;
+        }
+        @include mixin.breakpoint('min', 'desktop') {
+            padding: 10rem 0 5rem;
+        } 
+    }
+
+    .content--image {
+        flex: 0 0 40%;
+    }
+    .table__wrapper {
+        @include mixin.breakpoint('max', 'laptop') {
+            width: 100%;
+            overflow-x: scroll;
+        }
+    }
+}
+
+.content--centered {
+    .content--text {
+        @include mixin.breakpoint('min', 'laptop') {
+            @include mixin.flex($flex-direction: column, $justify-content: center);
+        }
+    }
+}
+
+.content--links {
+    padding: 5rem 0 20rem;
+}
+
+.content--contact {
+    .content__form {
+        margin-top: 3rem;
+    }
+}
