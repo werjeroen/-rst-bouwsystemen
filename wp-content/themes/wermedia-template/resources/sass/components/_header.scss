@@ -133,7 +133,7 @@
         letter-spacing: .5px;
     }
     .navigation__link--active {
-        * {
+        & > .navigation__link {
             font-weight: 600;
         }
     }
