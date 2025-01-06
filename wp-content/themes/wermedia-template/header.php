@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="preconnect" href="https://p.typekit.net" crossorigin />
 
-
    <!-- preload -->
    <link  as="style" rel="stylesheet preload prefetch"  href="https://use.typekit.net/gdw3tdj.css" crossorigin />
 
