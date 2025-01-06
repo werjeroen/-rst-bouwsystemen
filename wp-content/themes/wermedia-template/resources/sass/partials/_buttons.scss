@@ -37,6 +37,17 @@
     }
 }
 
+.button__solid--white {
+    background-color: rgba(color.$button-white, .85);
+    color: color.$black;
+    
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: color.$button-white;
+    }
+}
+
 .button__open--black {
     border: 2px solid color.$black;
     color: color.$black;

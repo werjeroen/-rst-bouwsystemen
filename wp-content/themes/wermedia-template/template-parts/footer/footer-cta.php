@@ -17,7 +17,7 @@
                   <?php $link_title = $cta_link['title']; ?>
                   <?php $link_target = $cta_link['target'] ? $cta_link['target'] : '_self'; ?>
                   <div class="button__box button__box--spacer">
-                    <a class="button button__open--black" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                    <a class="button button__solid--white" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                   </div>
                 <?php endif; ?>
             </div>
