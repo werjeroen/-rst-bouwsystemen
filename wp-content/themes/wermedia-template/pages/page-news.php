@@ -27,9 +27,8 @@ $result = new WP_Query($args);
         <?php if ($result->have_posts()) : ?>
             <div class="grid grid--two">
                 <?php while ($result->have_posts()) : $result->the_post(); ?>
-                    <?php get_template_part('template-parts/cards/card', 'news'); ?>
-                <?php endwhile;
-                wp_reset_postdata(); ?>
+                    <?php get_template_part('template-parts/cards/card', 'link'); ?>
+                <?php endwhile; wp_reset_postdata(); ?>
             </div>
             <?php TemplateHelper::wer_pagination($result->max_num_pages); ?>
         <?php else : ?>
@@ -39,4 +38,4 @@ $result = new WP_Query($args);
 </div>
 
 <?php
-    get_footer();
+get_footer();
