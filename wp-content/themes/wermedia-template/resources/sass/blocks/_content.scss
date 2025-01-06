@@ -118,7 +118,12 @@
 }
 
 .content--links {
-    padding: 5rem 0 20rem;
+    @include mixin.breakpoint('min', 'tablet') {
+        padding: 7.5rem 0 15rem;
+    }
+    @include mixin.breakpoint('min', 'laptop') {
+        padding: 10rem 0 20rem;
+    }
 }
 
 .content--contact {

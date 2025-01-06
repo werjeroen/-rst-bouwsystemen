@@ -12,7 +12,7 @@
     $children = new WP_Query($args);
 ?>
 <?php if ( !$hide_subpages && $children->have_posts()) : ?>
-    <section class="subpages content--even"> 
+    <section class="content content--links">
         <div class="wrapper--default">
             <div class="grid--two">
                 <?php while ($children->have_posts()) : $children->the_post(); ?>
