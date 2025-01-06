@@ -89,8 +89,6 @@
 }
 
 .block--content {
-
-
     &:not(.block--background) {
         @include mixin.breakpoint('min', 'laptop') {
             padding: 7.5rem 0 5rem;

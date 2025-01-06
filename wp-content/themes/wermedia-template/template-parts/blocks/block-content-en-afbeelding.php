@@ -1,6 +1,6 @@
 <?php
     $content_remove_spacing = get_sub_field('blok_ruimte_verwijderen') ? 'spacing--none' : '';
-    $content_background = get_sub_field('blok_omdraaien') ? 'block--background' : ''; 
+    $content_background = get_sub_field('blok_achtergrond_toevoegen') ? 'block--background' : ''; 
     $content_style = get_sub_field('blok_omdraaien') ? 'block--flipped' : ''; 
     $content_width = get_sub_field('content_breedte');
 ?>
