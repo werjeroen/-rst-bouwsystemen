@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <section class="content content--text">
-    <div class="content__wrapper--small">
+    <div class="wrapper--small">
         <p><?= __('Sorry, the page you were looking for does not exist. It may have been moved or deleted.', 'wermedia-template'); ?></p>
 
         <div class="button__box button__box--spacer">
