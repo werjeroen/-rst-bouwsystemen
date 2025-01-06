@@ -1,5 +1,5 @@
 <?php
-    $background_status = get_sub_field('achtergrond_toevoegen') ? 'block--background' : '';
+    $background_status = get_sub_field('blok_achtergrond_toevoegen') ? 'block--background' : '';
     
     $content_width = get_sub_field('content_breedte') ?? 'wrapper--default';
 

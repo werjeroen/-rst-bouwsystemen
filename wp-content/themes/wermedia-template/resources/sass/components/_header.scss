@@ -9,16 +9,25 @@
     height: 10rem;
     z-index: 10;
     transition: all 0.125s linear;
-    background-color: rgba(color.$white, .35);
-    color: color.$white;
+    background-color: rgba(color.$white, .55);
+    color: color.$black;
+
+    .menu__icon--dropdown {
+        path {
+            fill: rgba(color.$black, .55);
+        }
+    }
 
     &.header--fixed {
         background-color: color.$white;
         color: color.$black;
+        height: 8rem;
 
-        .menu__icon--dropdown {
-            path {
-                fill: color.$black;
+        .header__brand {
+            .brand__link {
+                @include mixin.breakpoint("min", "laptop") {
+                    height: 5.4rem;
+                }
             }
         }
     }
@@ -36,6 +45,7 @@
         @include mixin.flex($align-items: center);
         height: 5.4rem;
         width: auto;
+        transition: all .125s linear;
    
         @include mixin.breakpoint("min", "laptop") {
             height: 9.6rem;
