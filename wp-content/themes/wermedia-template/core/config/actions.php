@@ -12,6 +12,14 @@ function wer_remove_block_library_css()
 add_action('wp_enqueue_scripts', 'wer_remove_block_library_css', 100);
 
 /**
+ * Add category to the page
+ */
+function wer_add_page_category() {  
+    register_taxonomy_for_object_type('category', 'page');  
+}
+add_action( 'init', 'wer_add_page_category' );
+
+/**
  * Setup styles and scripts
  * 
  * @return void
