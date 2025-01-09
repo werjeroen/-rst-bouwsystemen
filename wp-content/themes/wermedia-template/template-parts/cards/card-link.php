@@ -10,6 +10,10 @@
         <div class="card__content">
             <h4><?php the_title(); ?></h4>
 
+            <?php if( $categories = get_the_category() ) : ?>
+                <?= $categories; ?>
+            <?php endif; ?>
+
             <?php if ( $excerpt = get_the_excerpt() ) : ?>
                 <?= $excerpt; ?>
             <?php endif; ?>

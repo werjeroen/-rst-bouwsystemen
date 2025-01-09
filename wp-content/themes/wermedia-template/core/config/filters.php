@@ -57,7 +57,7 @@ add_filter('nav_menu_css_class', 'clear_nav_menu_item_class', 10, 3);
  * Filter for excerpt length
  */
 add_filter( 'excerpt_length', function(){
-	return 22;
+	return 35;
 } );
 
 /**

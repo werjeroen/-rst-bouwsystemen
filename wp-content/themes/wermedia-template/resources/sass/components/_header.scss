@@ -6,10 +6,10 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 10rem;
+    height: 8rem;
     z-index: 10;
     transition: all 0.125s linear;
-    background-color: rgba(color.$white, .55);
+    background-color: color.$white;
     color: color.$black;
 
     .menu__icon--dropdown {
@@ -26,12 +26,15 @@
         .header__brand {
             .brand__link {
                 @include mixin.breakpoint("min", "laptop") {
-                    height: 5.4rem;
+                    height: 6.2rem;
                 }
             }
         }
     }
 
+    @include mixin.breakpoint("min", "tablet") {
+        height: 10rem;
+    }
     @include mixin.breakpoint("min", "laptop") {
         height: 12rem;
     }
@@ -43,7 +46,7 @@
 
     .brand__link {
         @include mixin.flex($align-items: center);
-        height: 5.4rem;
+        height: 6.2rem;
         width: auto;
         transition: all .125s linear;
    
@@ -152,7 +155,7 @@
         display: none !important;
     }
     @include mixin.breakpoint("min", "laptop") {
-        gap: 7rem;
+        gap: 5rem;
     }
 }
 
@@ -173,8 +176,8 @@
     .sidebar__menu {
         overflow-x: auto;
 
+        .navigation__link--children,
         .navigation__link {
-            @include mixin.flex($align-items: center);
             list-style: none;
             font-size: clamp(2.6rem, 3vw, 3.2rem);
             line-height: 1.8;
@@ -190,13 +193,33 @@
             }
         }
         .navigation__link--children {
+            @include mixin.flex($flex-direction: column);
+
             .menu__list {
                 max-height: 0;
                 transition: max-height 0.6s ease;
                 overflow: hidden;
                 padding: 0;
                 display: block;
+
+                .navigation__link {
+                    list-style: none;
+                    font-size: 1.8rem;
+                    font-size: clamp(1.8rem, 3vw, 2rem);
+                    line-height: 1.6;
+                }
+    
+                @include mixin.breakpoint("max", "desktop") {
+                    &.section--visible {
+                        max-height: max-content;
+                        visibility: visible;                
+                        padding: 0 1.5rem;
+                    }
+                }
             }
+        }
+        .navigation__link {
+            @include mixin.flex($align-items: center);
         }
     }
 

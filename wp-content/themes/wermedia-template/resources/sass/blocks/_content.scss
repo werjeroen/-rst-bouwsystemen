@@ -57,7 +57,7 @@
     }
     .content__text {
         @include mixin.flex($flex-direction: column, $justify-content: center);
-        padding: 2rem 0;
+        padding: 0 0 3rem;
         flex: 0 0 50%;
         
         @include mixin.breakpoint('min', 'laptop') {
@@ -118,6 +118,8 @@
 }
 
 .content--links {
+    padding: 5rem 0;
+    
     @include mixin.breakpoint('min', 'tablet') {
         padding: 7.5rem 0 15rem;
     }

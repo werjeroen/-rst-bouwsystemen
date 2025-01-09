@@ -19,6 +19,7 @@ html {
 body {
     margin: 0 0;
     color: color.$black;
+    padding-top: 8rem;
 
     &.preload {
         animation: none;
@@ -28,7 +29,14 @@ body {
             animation: none;
             transition: none;    
         }
-    }  
+    } 
+    
+    @include mixin.breakpoint('min', 'tablet') {
+        padding-top: 10rem;
+    }
+    @include mixin.breakpoint('min', 'laptop') {
+        padding-top: 12rem;
+    }
 }
 
 * {

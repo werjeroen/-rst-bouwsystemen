@@ -6,16 +6,6 @@
 .block--gallery {
     padding: 3rem 0;
 
-    &:first-of-type {
-        padding: 10rem 0 3rem;
-    }
-    &:last-of-type {
-        padding: 3rem 0 10rem;
-    }
-    &:only-of-type {
-        padding: 10rem 0 10rem;
-    }
-
     .block__intro {
         margin-bottom: 3rem;
 
@@ -37,6 +27,18 @@
             .image--transform {
                 transform: scale(1.075);
             }
+        }
+    }
+
+    @include mixin.breakpoint('min', 'laptop') {
+        &:first-of-type {
+            padding: 10rem 0 3rem;
+        }
+        &:last-of-type {
+            padding: 3rem 0 10rem;
+        }
+        &:only-of-type {
+            padding: 10rem 0 10rem;
         }
     }
 }
